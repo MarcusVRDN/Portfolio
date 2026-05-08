@@ -8,13 +8,13 @@ O objetivo do projeto foi criar uma interface mais interativa e estilizada, expl
 
 ## 🔗 Link do Projeto
 
-[INSERIR LINK DO PROJETO AQUI]
+(https://marcusvrdn.github.io/Portfolio/)
 
 ---
 
 ## 🎥 Vídeo de Apresentação
 
-https://youtu.be/m2xdjGKQ8jQ
+(https://youtu.be/m2xdjGKQ8jQ)
 
 ---
 
