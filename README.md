@@ -14,7 +14,7 @@ O objetivo do projeto foi criar uma interface mais interativa e estilizada, expl
 
 ## 🎥 Vídeo de Apresentação
 
-[[INSERIR LINK DO VÍDEO AQUI](https://youtu.be/m2xdjGKQ8jQ)]
+https://youtu.be/m2xdjGKQ8jQ
 
 ---
 
