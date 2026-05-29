@@ -1,11 +1,202 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
-    <title>Portfólio - MARCUS VINICIUS RIBEIRO DO NASCIMENTO</title>
+    <title>Marcus Nascimento</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 </head>
+
 <body>
-    <h1>Bem vindo ao Portfólio de MARCUS VINICIUS RIBEIRO DO NASCIMENTO</h1>
+    <nav class="navbar">
+        <div class="logo">
+            <p>Marcus.dev</p>
+            <img src="./assets/gothic-hero-idle.gif" alt="asset de um heroi">
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1 id="hero-title"></h1>
+
+                <p class="descricao">
+                    Desenvolvedor de Software, construindo minha jornada no desenvolvimento com foco em criar soluções
+                    que saem
+                    do código e ajudam a organizar o mundo real.
+                </p>
+            </div>
+
+            <div class="character-card">
+                <div class="orb"></div>
+                <h2>Marcus Nascimento</h2>
+                <div class="pixel-transition">
+
+                    <img class="normal-photo" src="./assets/foto-marcus.png" alt="Marcus">
+
+                    <img class="pixel-photo" src="./assets/foto-marcus-pixel.png" alt="Marcus pixel art">
+
+                </div>
+                <p>Classe: Fullstack Developer</p>
+
+                <div class="status">
+                    <span>HP</span>
+                    <div class="bar">
+                        <div class="hp"></div>
+                    </div>
+                </div>
+                <div class="status">
+                    <span>MP</span>
+                    <div class="bar">
+                        <div class="mp"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+
+        <section id="about" class="section">
+            <div class="about-title">
+                <h2>Jornada do Herói</h2>
+                <img src="./assets/angel-idle.gif" alt="anjo">
+            </div>
+            <div class="scroll-card">
+                <p>
+                    Sou um Desenvolvedor Full Stack focado na construção de aplicações web utilizando React, TypeScript
+                    e
+                    Node.js.
+                </p>
+
+                <p>Atualmente estou cursando Desenvolvimento de Software na FATEC, desenvolvendo habilidades tanto em
+                    frontend
+                    quanto em backend, com forte foco em aprendizado prático e código limpo.
+                </p>
+
+                <p>
+                    Tenho interesse em criar soluções eficientes e escaláveis, além de buscar constantemente aprimorar
+                    meu
+                    entendimento sobre arquitetura de software e boas práticas de desenvolvimento.
+                </p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="skills-title">
+                <h2>Ferramentas e Tecnologias</h2>
+                <img src="./assets/tools.png" alt="tools">
+            </div>
+
+            <div id="skills-grid">
+                <div class="skill-card">
+                    <i class="devicon-html5-plain-wordmark colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-css3-plain-wordmark colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-javascript-plain colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-postgresql-plain-wordmark colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-typescript-plain colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-react-original-wordmark colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-nodejs-plain-wordmark colored"></i>
+                </div>
+
+                <div class="skill-card">
+                    <i class="devicon-express-original-wordmark"></i>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="project-title">
+                <h2>Projetos</h2>
+                <img src="./assets/nightmare-galloping.gif" alt="Nightmare">
+            </div>
+            <div class="projects-grid">
+                <a href="https://github.com/abpundefined/1DSM-ABP-Undefined" target="_blank" class="project-window">
+                    <div class="window-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <img src="./assets/screenshot-agrirslab.png" alt="Preview do projeto do site AgriRSLab">
+
+                    <div class="window-info">
+                        <p class="quest-label">QUEST I</p>
+                        <h3>AgriRSLab Website</h3>
+
+                        <p class="project-description">
+                            Projeto desenvolvido visando criar um website para o laboratório AgriRSLab do Inpe
+                        </p>
+
+                        <div class="project-status online">
+                            Projeto online
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Projeto em desenvolvimento no GitHub -->
+                <a href="https://github.com/abpundefined/2DSM-ABP-UNDEFINED" target="_blank" class="project-window">
+                    <div class="window-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <img src="./assets/screenshot-chatbot.png" alt="Preview do projeto Chatbot">
+
+                    <div class="window-info">
+                        <p class="quest-label">QUEST II</p>
+                        <h3>Chatbot Secretaria Fatec</h3>
+
+                        <p class="project-description">
+                            Projeto desenvolvido visando criar um chatbot para a secretaria da Fatec
+                        </p>
+
+                        <div class="project-status development">
+                            ⚒ Forjando sistema
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="contact" class="section contact">
+            <h2>Envie um corvo</h2>
+
+            <p>Quer falar de projetos, código ou oportunidades?</p>
+
+            <div class="hero-buttons">
+                <a href="https://github.com/MarcusVRDN" target="_blank" class="pixel-button">GitHub</a>
+                <a href="www.linkedin.com/in/marcus-nascimento-50a0ba1b5" target="_blank" class="pixel-button secondary">LinkedIn</a>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
