@@ -10,7 +10,7 @@
 
 ## Portfólio Online
 
-🔗 [Acesse o Portfólio]([https://marcusvrdn.github.io/Portfolio/](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523033))
+🔗 [Acesse o Portfólio](https://fatec-jacarei-dsm-portfolio.github.io/ra2581392523033/)
 
 ---
 
