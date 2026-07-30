@@ -390,11 +390,22 @@ body {
   margin-bottom: 12px;
   font-size: 1.25rem;
 }
-
 .project-description {
   color: var(--muted);
   line-height: 1.6;
   margin-bottom: 18px;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card-buttons{
+  display: flex;
+  gap: 18px;
+  justify-content: space-evenly;
 }
 
 .project-status {
