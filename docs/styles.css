@@ -1,16 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap");
 
 :root {
   --bg: #080b10;
+  --bg-secondary: #111827;
   --bg-card: #151b26;
+  --bg-dark: #07090d;
+
   --text: #f3ead7;
   --muted: #b8ad98;
+
   --gold: #d6a84f;
   --gold-light: #ffd778;
-  --border-dark: #000;
+
+  --black: #000;
+
+  --green-dark: #24753a;
+  --green-light: #49c76b;
+
+  --blue-dark: #315ca8;
+  --blue-light: #6fa8ff;
+
+  --shadow-card:
+    0 0 0 4px var(--black),
+    12px 12px 0 var(--black);
+
+  --shadow-project:
+    0 0 0 4px var(--black),
+    14px 14px 0 var(--black);
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,12 +43,25 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #080b10, #111827);
+  background: linear-gradient(
+    180deg,
+    var(--bg),
+    var(--bg-secondary)
+  );
   color: var(--text);
   font-family: "Inter", sans-serif;
 }
 
-.navbar{
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
   height: 72px;
   padding: 0 8%;
 
@@ -35,16 +69,16 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(8, 11, 16, 0.92); 
+  background: rgba(8, 11, 16, 0.92);
   border-bottom: 3px solid var(--gold);
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
 }
 
-.logo p{
+.logo p {
   font-family: "Press Start 2P", monospace;
   font-size: 0.85rem;
   color: var(--gold-light);
@@ -54,71 +88,99 @@ body {
 .nav-links {
   display: flex;
   gap: 28px;
+
   list-style: none;
 }
 
 .nav-links a {
   color: var(--text);
   text-decoration: none;
-  font-weight: 700;
+
   font-size: 0.95rem;
+  font-weight: 700;
+
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
   color: var(--gold-light);
 }
 
-.hero {
+.nav-links a:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 5px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+#hero {
   min-height: calc(100vh - 72px);
   padding: 80px 8%;
 
   display: grid;
-  grid-template-columns: 1.2fr 380px;
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(300px, 380px);
   gap: 48px;
   align-items: center;
 }
 
 .hero-text h1 {
+  margin-bottom: 28px;
+
   font-family: "Press Start 2P", monospace;
   font-size: clamp(1.4rem, 3vw, 2.8rem);
   line-height: 1.5;
+  min-height: 6.5em;
+
   color: var(--gold-light);
   text-shadow: 5px 5px 0 var(--black);
-  margin-bottom: 28px;
 }
 
 .hero-text h1::after {
   content: "|";
+
   margin-left: 8px;
+
   color: var(--gold-light);
+
   animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-
-  51%, 100% {
-    opacity: 0;
-  }
 }
 
 .descricao {
   max-width: 650px;
+
   color: var(--muted);
+
   font-size: 1.1rem;
   line-height: 1.8;
 }
 
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================
+   CHARACTER CARD
+========================= */
+
 .character-card {
+  padding: 28px;
+
   background: var(--bg-card);
   border: 4px solid var(--gold);
-  box-shadow:
-    0 0 0 4px var(--black),
-    12px 12px 0 var(--black);
+  box-shadow: var(--shadow-card);
 
-  padding: 28px;
   text-align: center;
 }
 
@@ -128,24 +190,41 @@ body {
   margin: 0 auto 18px;
 
   border-radius: 50%;
-  background: radial-gradient(circle, #fff7a8, var(--gold), #6f4314);
+
+  background: radial-gradient(
+    circle,
+    #fff7a8,
+    var(--gold),
+    #6f4314
+  );
+
   box-shadow: 0 0 28px rgba(255, 215, 120, 0.8);
 }
 
 .character-card h2 {
+  margin-bottom: 18px;
+
   font-family: "Press Start 2P", monospace;
   font-size: 0.85rem;
   line-height: 1.5;
+
   color: var(--gold-light);
-  margin-bottom: 18px;
 }
+
+.character-card p {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* =========================
+   PHOTO TRANSITION
+========================= */
 
 .pixel-transition {
   position: relative;
 
   width: 220px;
   height: 220px;
-
   margin: 24px auto;
 }
 
@@ -159,11 +238,19 @@ body {
   object-fit: cover;
 
   border: 4px solid var(--gold);
-  image-rendering: pixelated;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.normal-photo {
+  opacity: 1;
 }
 
 .pixel-photo {
   opacity: 0;
+  transform: scale(1);
 
   image-rendering: pixelated;
 }
@@ -177,10 +264,9 @@ body {
   opacity: 0;
 }
 
-.character-card p {
-  color: var(--muted);
-  font-weight: 700;
-}
+/* =========================
+   STATUS BARS
+========================= */
 
 .status {
   margin-top: 18px;
@@ -188,10 +274,12 @@ body {
 
 .status span {
   display: block;
+
   margin-bottom: 8px;
 
   font-family: "Press Start 2P", monospace;
   font-size: 0.7rem;
+
   color: var(--gold-light);
 }
 
@@ -199,8 +287,9 @@ body {
   width: 100%;
   height: 18px;
 
-  background: #07090d;
+  background: var(--bg-dark);
   border: 3px solid var(--black);
+
   box-shadow: inset 0 0 0 2px #2c3444;
 }
 
@@ -211,75 +300,130 @@ body {
 
 .hp {
   width: 85%;
-  background: linear-gradient(90deg, #24753a, #49c76b);
+
+  background: linear-gradient(
+    90deg,
+    var(--green-dark),
+    var(--green-light)
+  );
 }
 
 .mp {
   width: 70%;
-  background: linear-gradient(90deg, #315ca8, #6fa8ff);
+
+  background: linear-gradient(
+    90deg,
+    var(--blue-dark),
+    var(--blue-light)
+  );
 }
 
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
 .section {
+  position: relative;
   padding: 90px 8%;
 }
 
+.section::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: min(84%, 1100px);
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(214, 168, 79, 0.35),
+    transparent
+  );
+}
+
 .section h2 {
+  margin-bottom: 32px;
+
   font-family: "Press Start 2P", monospace;
   font-size: 1.3rem;
+
   color: var(--gold-light);
-  margin-bottom: 32px;
   text-shadow: 4px 4px 0 var(--black);
 }
 
-.about-title {
+
+.about-title,
+.skills-title,
+.project-title {
   display: flex;
-  align-items: flex-end ;
-}
-
-.scroll-card {
-  max-width: 900px;
-
-  background: linear-gradient(180deg, #20170f, #121824);
-  border: 4px solid var(--gold);
-  box-shadow:
-    0 0 0 4px var(--black),
-    12px 12px 0 var(--black);
-
-  padding: 34px;
-}
-
-.scroll-card p {
-  color: var(--muted);
-  line-height: 1.9;
-  margin-bottom: 18px;
+  align-items: center;
 }
 
 .skills-title {
-  display: flex;
-  align-items: flex-end;
   gap: 10px;
 }
 
+/* =========================
+   ABOUT
+========================= */
+
+.scroll-card {
+  max-width: 900px;
+  padding: 34px;
+
+  background: linear-gradient(
+    180deg,
+    #20170f,
+    #121824
+  );
+
+  border: 4px solid var(--gold);
+  box-shadow: var(--shadow-card);
+}
+
+.scroll-card p {
+  margin-bottom: 18px;
+
+  color: var(--muted);
+
+  line-height: 1.9;
+}
+
+.scroll-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
 #skills-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
-  justify-content: center;
 }
 
 .skill-card {
-  width: calc(25% - 18px);
+  padding: 26px 18px;
 
   background: var(--bg-card);
   border: 3px solid #3b2f22;
+
   box-shadow:
     0 0 0 3px var(--black),
     8px 8px 0 var(--black);
 
-  padding: 26px 18px;
   text-align: center;
 
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .skill-card:hover {
@@ -290,25 +434,28 @@ body {
 .skill-card i {
   display: block;
 
-  font-size: 5rem;
-
   margin-bottom: 18px;
+
+  font-size: 5rem;
 }
 
 .skill-card h3 {
   font-family: "Press Start 2P", monospace;
   font-size: 0.7rem;
+
   color: var(--text);
 }
 
-.project-title{
-  display: flex;
-  align-items: flex-end;
-}
+/* =========================
+   PROJECTS
+========================= */
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
   gap: 34px;
 }
 
@@ -320,10 +467,7 @@ body {
 
   background: var(--bg-card);
   border: 4px solid var(--gold);
-
-  box-shadow:
-    0 0 0 4px var(--black),
-    14px 14px 0 var(--black);
+  box-shadow: var(--shadow-project);
 
   color: var(--text);
 
@@ -334,28 +478,16 @@ body {
   transform: translateY(-8px);
 }
 
-.project-window img {
-  width: 100%;
-  height: 190px;
-
-  object-fit: cover;
-  image-rendering: pixelated;
-
-  border-bottom: 3px solid var(--black);
-}
-.project-window:hover {
-  transform: translateY(-8px);
-}
-
 .window-top {
   height: 36px;
-  background: #090d13;
-  border-bottom: 3px solid var(--gold);
+  padding: 0 12px;
 
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 12px;
+
+  background: #090d13;
+  border-bottom: 3px solid var(--gold);
 }
 
 .window-top span {
@@ -369,8 +501,8 @@ body {
 .project-window img {
   width: 100%;
   height: 190px;
+
   object-fit: cover;
-  image-rendering: pixelated;
 
   border-bottom: 3px solid var(--black);
 }
@@ -380,20 +512,26 @@ body {
 }
 
 .quest-label {
+  margin-bottom: 12px;
+
   font-family: "Press Start 2P", monospace;
   font-size: 0.65rem;
+
   color: var(--gold-light);
-  margin-bottom: 12px;
 }
 
 .window-info h3 {
   margin-bottom: 12px;
+
   font-size: 1.25rem;
 }
+
 .project-description {
-  color: var(--muted);
-  line-height: 1.6;
   margin-bottom: 18px;
+
+  color: var(--muted);
+
+  line-height: 1.6;
 }
 
 .project-details {
@@ -402,23 +540,25 @@ body {
   gap: 18px;
 }
 
-.card-buttons{
+.card-buttons {
   display: flex;
-  gap: 18px;
   justify-content: space-evenly;
+  gap: 18px;
 }
 
 .project-status {
   display: inline-block;
+
   padding: 8px 12px;
 
   border: 2px solid var(--black);
-  font-weight: 700;
+
   font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .project-status.online {
-  background: #49c76b;
+  background: var(--green-light);
   color: #071008;
 }
 
@@ -427,39 +567,65 @@ body {
   color: #120d05;
 }
 
+/* =========================
+   CONTACT
+========================= */
+
 .contact {
   text-align: center;
 }
 
 .contact p {
-  color: var(--muted);
   margin-bottom: 28px;
+
+  color: var(--muted);
 }
+
+/* =========================
+   BUTTONS
+========================= */
 
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 18px;
   flex-wrap: wrap;
+  gap: 18px;
 }
 
 .pixel-button {
   display: inline-block;
+
   padding: 14px 22px;
 
   background: var(--gold);
   color: #120d05;
 
+  border: 3px solid var(--black);
+  box-shadow: 6px 6px 0 var(--black);
+
   text-decoration: none;
   font-weight: 800;
 
-  border: 3px solid var(--black);
-  box-shadow: 6px 6px 0 var(--black);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .pixel-button:hover {
   transform: translate(3px, 3px);
   box-shadow: 3px 3px 0 var(--black);
+}
+
+.pixel-button:active {
+  transform: translate(6px, 6px);
+  box-shadow: none;
+}
+
+.pixel-button:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 5px;
 }
 
 .pixel-button.secondary {
@@ -468,10 +634,19 @@ body {
   border-color: var(--gold);
 }
 
+.pixel-button.secondary:hover {
+  background: rgba(214, 168, 79, 0.12);
+}
+
+/* =========================
+   TABLETS
+========================= */
+
 @media (max-width: 850px) {
   .navbar {
     height: auto;
     padding: 22px 6%;
+
     flex-direction: column;
     gap: 18px;
   }
@@ -482,12 +657,14 @@ body {
     gap: 16px;
   }
 
-  .hero {
+  #hero {
     grid-template-columns: 1fr;
+
     padding: 60px 6%;
   }
 
   .character-card {
+    width: 100%;
     max-width: 380px;
     margin: 0 auto;
   }
@@ -495,7 +672,18 @@ body {
   .section {
     padding: 70px 6%;
   }
+
+  #skills-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
 }
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 480px) {
   .hero-text h1 {
@@ -510,28 +698,46 @@ body {
     font-size: 1rem;
   }
 
-  .character-card img {
+  .pixel-transition {
     width: 150px;
     height: 150px;
+  }
+
+  #skills-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-window img {
     height: 160px;
   }
-}
 
-@media (max-width: 850px) {
-  #skills-grid {
-    justify-content: center;
+  .card-buttons {
+    flex-direction: column;
   }
 
-  .skill-card {
-    width: calc(50% - 12px);
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-card {
+  .pixel-button {
     width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
   }
 }
