@@ -347,6 +347,10 @@ img {
   );
 }
 
+.section:last-of-type::after {
+  display: none;
+}
+
 .section h2 {
   margin-bottom: 32px;
 
@@ -361,7 +365,9 @@ img {
 .about-title,
 .skills-title,
 .project-title,
-.experience-title {
+.featured-project-title,
+.experience-title,
+.education-title {
   display: flex;
   align-items: center;
 }
@@ -574,47 +580,56 @@ img {
     gap: 12px;
 }
 
-.tech-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+.tech-tags,
+.study-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 
-    list-style: none;
+  list-style: none;
 }
 
-.tech-tag {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.tech-tag,
+.study-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    padding: 6px 12px;
+  padding: 6px 12px;
 
-    border: 2px solid var(--gold);
-    background: rgba(214, 168, 79, 0.1);
+  border: 2px solid var(--gold);
+  background: rgba(214, 168, 79, 0.1);
 
-    color: var(--gold-light);
-    font-size: .9rem;
-    font-weight: 600;
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .tech-tag i {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 /* =========================
    MAIN PROJECT
 ========================= */
-.featured-project-title {
+.featured-project-title,
+.education-title {
   margin-bottom: 32px;
 }
 
-.featured-project-title .quest-label {
-  margin-bottom: 12px;
+.featured-project-title h2,
+.education-title h2 {
+  margin-bottom: 0;
 }
+
+.education-title{
+  display: flex;
+  justify-content: center;
+} 
 
 .featured-project {
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   gap: 42px;
   align-items: center;
 }
@@ -627,11 +642,10 @@ img {
     8px 8px 0 var(--black);
 }
 
-.featured-project-image img{
-    display:block;
-
-    width:100%;
-    height:auto;
+.featured-project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .featured-project-content {
@@ -665,7 +679,8 @@ img {
 }
 
 .featured-project-context,
-.featured-project-features {
+.featured-project-features,
+.study-area {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -673,7 +688,8 @@ img {
 
 .featured-project-context h4,
 .featured-project-features h4,
-.project-label {
+.project-label,
+.study-label {
   color: var(--gold-light);
 
   font-size: 0.95rem;
@@ -754,6 +770,94 @@ img {
 }
 
 /* =========================
+   EDUCATION
+========================= */
+
+.education-card {
+  width: min(100%, 780px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.education-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.education-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.education-label {
+  margin-bottom: 10px;
+  color: var(--gold-light);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.58rem;
+  line-height: 1.6;
+}
+
+.education-card h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.education-institution {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.education-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding-block: 20px;
+  border-top: 1px solid rgba(214, 168, 79, 0.25);
+  border-bottom: 1px solid rgba(214, 168, 79, 0.25);
+}
+
+.education-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.education-info-label {
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.education-info > p:last-child {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.education-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--green-light);
+  box-shadow: 0 0 10px rgba(73, 199, 107, 0.65);
+}
+
+.study-tag {
+  line-height: 1.35;
+}
+
+/* =========================
    CONTACT
 ========================= */
 
@@ -770,6 +874,31 @@ img {
 /* =========================
    BUTTONS
 ========================= */
+
+
+.repo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--gold-light);
+  border: 2px solid var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.repo-button:hover {
+  background: rgba(214, 168, 79, 0.12);
+}
+
+.repo-button:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
 
 .hero-buttons {
   display: flex;
@@ -872,6 +1001,15 @@ img {
 ========================= */
 
 @media (max-width: 480px) {
+  .education-meta,
+  .education-header {
+    grid-template-columns: 1fr;
+  }
+
+  .education-icon {
+    font-size: 2rem;
+  }
+
   .hero-text h1 {
     font-size: 1.1rem;
   }
