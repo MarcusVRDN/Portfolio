@@ -858,6 +858,138 @@ img {
 }
 
 /* =========================
+   CERTIFICATIONS
+========================= */
+/* =========================
+   CERTIFICATIONS
+========================= */
+
+.certifications-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.certifications-title h2 {
+  margin-bottom: 0;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+  gap: 28px;
+}
+
+.certification-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  min-height: 100%;
+}
+
+.certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.certification-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(214, 168, 79, 0.1);
+  border: 2px solid var(--gold);
+
+  color: var(--gold-light);
+  font-size: 1.8rem;
+}
+
+.certification-icon i {
+  font-size: 2rem;
+}
+
+.certification-type {
+  color: var(--gold-light);
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+  line-height: 1.6;
+}
+
+.certification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  flex: 1;
+}
+
+.certification-content h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.certification-institution {
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.certification-description {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.certification-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(214, 168, 79, 0.25);
+}
+
+.certification-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.credential-link {
+  color: var(--gold-light);
+
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.credential-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.credential-link:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 5px;
+}
+
+/* =========================
    CONTACT
 ========================= */
 
