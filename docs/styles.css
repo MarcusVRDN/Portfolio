@@ -568,6 +568,170 @@ img {
   color: #120d05;
 }
 
+.project-technologies {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    list-style: none;
+}
+
+.tech-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 6px 12px;
+
+    border: 2px solid var(--gold);
+    background: rgba(214, 168, 79, 0.1);
+
+    color: var(--gold-light);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.tech-tag i {
+    font-size: 1.1rem;
+}
+
+/* =========================
+   MAIN PROJECT
+========================= */
+.featured-project-title {
+  margin-bottom: 32px;
+}
+
+.featured-project-title .quest-label {
+  margin-bottom: 12px;
+}
+
+.featured-project {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 42px;
+  align-items: center;
+}
+.featured-project-image {
+  overflow: hidden;
+
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 3px var(--black),
+    8px 8px 0 var(--black);
+}
+
+.featured-project-image img{
+    display:block;
+
+    width:100%;
+    height:auto;
+}
+
+.featured-project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.project-category {
+  margin-bottom: 10px;
+
+  color: var(--gold-light);
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  line-height: 1.6;
+}
+
+.featured-project-content h3 {
+  color: var(--text);
+
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.featured-project-description {
+  color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.featured-project-context,
+.featured-project-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featured-project-context h4,
+.featured-project-features h4,
+.project-label {
+  color: var(--gold-light);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.featured-project-context p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.featured-project-features ul {
+  padding-left: 20px;
+}
+
+.featured-project-features li {
+  margin-bottom: 8px;
+
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.featured-project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .featured-project {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-project-image img {
+    min-height: auto;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-project {
+    padding: 24px;
+  }
+
+  .featured-project-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .featured-project-buttons {
+    flex-direction: column;
+  }
+
+  .featured-project-buttons .pixel-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* =========================
    EXPERIENCE
 ========================= */
@@ -578,13 +742,15 @@ img {
   box-shadow: var(--shadow-card);
 
   padding: 34px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
 }
 .panel-text {
   color: var(--muted);
+}
+
+.panel-stack {
+    display:flex;
+    flex-direction:column;
+    gap:18px;
 }
 
 /* =========================
