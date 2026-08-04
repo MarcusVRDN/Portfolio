@@ -17,14 +17,17 @@
         </div>
 
         <ul class="nav-links">
-            <li><a href="#home">Início</a></li>
+            <li><a href="#hero">Início</a></li>
             <li><a href="#about">Sobre</a></li>
             <li><a href="#projects">Projetos</a></li>
+            <li><a href="#experience">Experiência</a></li>
+            <li><a href="#education">Formação</a></li>
+            <li><a href="#certifications">Certificações</a></li>
             <li><a href="#contact">Contato</a></li>
         </ul>
     </nav>
     <main>
-        <section class="hero">
+        <section id="hero" class="section reveal">
             <div class="hero-text">
                 <h1 id="hero-title"></h1>
 
@@ -65,9 +68,9 @@
 
         </section>
 
-        <section id="about" class="section">
+        <section id="about" class="section reveal">
             <div class="about-title">
-                <h2>Jornada do Herói</h2>
+                <h2>Quem sou eu?</h2>
                 <img src="./assets/angel-idle.gif" alt="anjo">
             </div>
             <div class="scroll-card">
@@ -90,7 +93,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section id="skills" class="section reveal">
             <div class="skills-title">
                 <h2>Ferramentas e Tecnologias</h2>
                 <img src="./assets/tools.png" alt="tools">
@@ -131,126 +134,423 @@
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <section id="projects" class="section">
-                <div class="project-title">
-                    <h2>Projetos</h2>
-                    <img src="./assets/nightmare-galloping.gif" alt="Nightmare">
-                </div>
+        <section id="projects" class="section reveal">
+            <div class="project-title">
+                <h2>Projetos</h2>
+                <img src="./assets/nightmare-galloping.gif" alt="Nightmare">
+            </div>
 
-                <div class="projects-grid">
+            <div class="projects-grid">
 
-                    <article class="project-window">
-                        <div class="window-top">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                <article class="project-window">
+                    <div class="window-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-                        <img src="./assets/screenshot-agrirslab.png" alt="Preview do projeto AgriRSLab">
+                    <img src="./assets/screenshot-agrirslab.png" alt="Preview do projeto AgriRSLab">
 
-                        <div class="window-info">
-                            <p class="quest-label">ACADÊMICO • 1DSM</p>
+                    <div class="window-info">
+                        <p class="quest-label">ACADÊMICO • 1DSM</p>
 
-                            <h3>AgriRSLab Website</h3>
+                        <h3>AgriRSLab Website</h3>
 
-                            <p class="project-description">
-                                Website institucional desenvolvido para o laboratório AgriRSLab do INPE.
-                            </p>
+                        <p class="project-description">
+                            Website institucional desenvolvido para o laboratório AgriRSLab do INPE.
+                        </p>
 
+                        <div class="project-details">
                             <p>
                                 <strong>Minha contribuição:</strong>
                                 Desenvolvedor responsável pela implementação das páginas, estilização da interface e
                                 funcionalidades do sistema.
                             </p>
 
-                            <p>
-                                <strong>Tecnologias:</strong>
-                                HTML, CSS, JavaScript e Bootstrap.
-                            </p>
+                            <div class="project-technologies">
+                                <p class="project-label">Tecnologias</p>
+
+                                <ul class="tech-tags">
+                                    <li class="tech-tag">
+                                        <i class="devicon-html5-plain colored"></i>
+                                        HTML
+                                    </li>
+
+                                    <li class="tech-tag">
+                                        <i class="devicon-css3-plain colored"></i>
+                                        CSS
+                                    </li>
+
+                                    <li class="tech-tag">
+                                        <i class="devicon-javascript-plain colored"></i>
+                                        JavaScript
+                                    </li>
+
+                                    <li class="tech-tag">
+                                        <i class="devicon-bootstrap-plain colored"></i>
+                                        Bootstrap
+                                    </li>
+                                </ul>
+                            </div>
 
                             <p>
                                 <strong>Semestre:</strong>
                                 1DSM
                             </p>
+                            <div class="card-buttons">
+                                <a href="https://github.com/abpundefined/1DSM-ABP-Undefined" target="_blank"
+                                    rel="noopener noreferrer" class="repo-button">
+                                    Ver Repositório
+                                </a>
 
-                            <a href="https://github.com/abpundefined/1DSM-ABP-Undefined" target="_blank"
-                                class="repo-button">
-                                Ver Repositório
-                            </a>
-
-                            <div class="project-status online">
-                                Projeto concluído
+                                <div class="project-status online">
+                                    Projeto concluído
+                                </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
-                    <article class="project-window">
-                        <div class="window-top">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                <article class="project-window">
+                    <div class="window-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-                        <img src="./assets/screenshot-chatbot.png" alt="Preview do projeto Chatbot">
+                    <img src="./assets/screenshot-chatbot.png" alt="Preview do projeto Chatbot">
 
-                        <div class="window-info">
-                            <p class="quest-label">ACADÊMICO • 2DSM</p>
+                    <div class="window-info">
+                        <p class="quest-label">ACADÊMICO • 2DSM</p>
 
-                            <h3>Chatbot Secretaria Fatec</h3>
+                        <h3>Chatbot Secretaria Fatec</h3>
 
-                            <p class="project-description">
-                                Sistema de atendimento automatizado para auxiliar alunos com dúvidas da secretaria
-                                acadêmica.
-                            </p>
+                        <p class="project-description">
+                            Sistema de atendimento automatizado para auxiliar alunos com dúvidas da secretaria
+                            acadêmica.
+                        </p>
 
+                        <div class="project-details">
                             <p>
                                 <strong>Minha contribuição:</strong>
-                                Product Owner responsável pelo levantamento de requisitos, backlog e alinhamento com o
+                                Product Owner responsável pelo levantamento de requisitos, backlog e alinhamento com
+                                o
                                 cliente.
                             </p>
 
-                            <p>
-                                <strong>Tecnologias:</strong>
-                                Node.js, TypeScript, PostgreSQL e Docker.
-                            </p>
+                            <div class="project-technologies">
+                                <p class="project-label">Tecnologias</p>
+
+                                <ul class="tech-tags">
+                                    <li class="tech-tag">
+                                        <i class="devicon-nodejs-plain colored"></i>
+                                        Node.js
+                                    </li>
+
+                                    <li class="tech-tag">
+                                        <i class="devicon-typescript-plain colored"></i>
+                                        TypeScript
+                                    </li>
+
+                                    <li class="tech-tag">
+                                        <i class="devicon-postgresql-plain colored"></i>
+                                        PostgreSQL
+                                    </li>
+
+                                    <li class="tech-tag">
+                                        <i class="devicon-docker-plain colored"></i>
+                                        Docker
+                                    </li>
+                                </ul>
+                            </div>
 
                             <p>
                                 <strong>Semestre:</strong>
                                 2DSM
                             </p>
 
-                            <a href="https://github.com/abpundefined/2DSM-ABP-UNDEFINED" target="_blank"
-                                class="repo-button">
-                                Ver Repositório
-                            </a>
+                            <div class="card-buttons">
+                                <a href="https://github.com/abpundefined/2DSM-ABP-UNDEFINED" target="_blank"
+                                    rel="noopener noreferrer" class="repo-button">
+                                    Ver Repositório
+                                </a>
 
-                            <div class="project-status online">
-                                Projeto concluído
+                                <div class="project-status online">
+                                    Projeto concluído
+                                </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="featured-project" class="section reveal">
+            <div class="featured-project-title">
+                <h2>Projeto em destaque</h2>
+            </div>
+
+            <article class="featured-project panel">
+
+                <div class="featured-project-image">
+                    <img src="./assets/controle-producao.png" alt="Tela do sistema Controle de Produção">
+                </div>
+
+                <div class="featured-project-content">
+
+                    <div>
+                        <p class="project-category">
+                            PROJETO PESSOAL • FULL STACK
+                        </p>
+
+                        <h3>Controle de Produção</h3>
+                    </div>
+
+                    <p class="featured-project-description">
+                        Sistema web desenvolvido a partir da minha experiência
+                        profissional em planejamento e controle de produção.
+                        A aplicação centraliza o gerenciamento de clientes,
+                        pedidos, peças e ordens de serviço.
+                    </p>
+
+                    <div class="featured-project-context">
+                        <h4>O problema</h4>
+
+                        <p>
+                            No ambiente de produção, informações importantes podem
+                            ficar espalhadas entre planilhas, documentos e controles
+                            manuais. O projeto busca organizar esses dados em uma
+                            aplicação única, facilitando o acompanhamento do fluxo
+                            produtivo.
+                        </p>
+                    </div>
+
+                    <div class="featured-project-features">
+                        <h4>Principais funcionalidades</h4>
+
+                        <ul>
+                            <li>Cadastro e gerenciamento de clientes</li>
+                            <li>Controle de pedidos e peças</li>
+                            <li>Gerenciamento de ordens de serviço</li>
+                            <li>Integração entre frontend, API e banco de dados</li>
+                        </ul>
+                    </div>
+
+                    <div class="project-technologies">
+                        <p class="project-label">Tecnologias</p>
+
+                        <ul class="tech-tags">
+                            <li class="tech-tag">
+                                <i class="devicon-react-original colored"></i>
+                                React
+                            </li>
+
+                            <li class="tech-tag">
+                                <i class="devicon-typescript-plain colored"></i>
+                                TypeScript
+                            </li>
+
+                            <li class="tech-tag">
+                                <i class="devicon-nodejs-plain colored"></i>
+                                Node.js
+                            </li>
+
+                            <li class="tech-tag">
+                                <i class="devicon-express-original"></i>
+                                Express
+                            </li>
+
+                            <li class="tech-tag">
+                                <i class="devicon-prisma-original"></i>
+                                Prisma
+                            </li>
+
+                            <li class="tech-tag">
+                                <i class="devicon-postgresql-plain colored"></i>
+                                PostgreSQL
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="featured-project-buttons">
+                        <a href="SEU_LINK_DO_GITHUB" class="pixel-button" target="_blank" rel="noopener noreferrer">
+                            Ver GitHub
+                        </a>
+
+                        <a href="#" class="pixel-button secondary">
+                            Ver detalhes
+                        </a>
+                    </div>
 
                 </div>
-            </section>
 
-            <section id="contact" class="section contact">
-                <h2>Entre em contato</h2>
-
-                <p>Quer falar de projetos, código ou oportunidades?</p>
-
-                <div class="hero-buttons">
-                    <a href="https://github.com/MarcusVRDN" target="_blank" class="pixel-button">
-                        GitHub
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/marcus-nascimento-50a0ba1b5" target="_blank"
-                        class="pixel-button secondary">
-                        LinkedIn
-                    </a>
+            </article>
+        </section>
+        <section id="experience" class="section reveal">
+            <div class="panel panel-stack">
+                <div class="experience-title">
+                    <h2>Experiência Profissional</h2>
                 </div>
-            </section>
+                <h3>⚒ Assistente de PCP</h3>
+                <strong>Refortec Reformas Técnicas e Equipamentos Ltda</strong>
 
+                <p class="panel-text">2021 - Presente</p>
+
+                <p class="panel-text">Trabalho com planejamento e controle de produção, lidando
+                    diariamente com gargalos, ordens de serviço e organização do fluxo produtivo.
+                    Essa experiência influencia diretamente os sistemas que desenvolvo hoje.</p>
+            </div>
+
+        </section>
+        <section id="education" class="section reveal">
+            <div class="education-title">
+                <h2>Formação</h2>
+            </div>
+
+            <article class="panel education-card">
+                <div class="education-header">
+                    <span class="education-icon" aria-hidden="true">🎓</span>
+
+                    <div>
+                        <p class="education-label">GRADUAÇÃO • EM ANDAMENTO</p>
+                        <h3>Desenvolvimento de Software Multiplataforma</h3>
+                        <p class="education-institution">
+                            FATEC Jacareí — Prof. Francisco de Moura
+                        </p>
+                    </div>
+                </div>
+
+                <div class="education-meta">
+                    <div class="education-info">
+                        <p class="education-info-label">Período</p>
+                        <p>
+                            <time datetime="2025-07">Jul. 2025</time>
+                            —
+                            <time datetime="2028-06">Jun. 2028</time>
+                        </p>
+                    </div>
+
+                    <div class="education-info">
+                        <p class="education-info-label">Status</p>
+                        <p class="education-status">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            3º semestre • Cursando
+                        </p>
+                    </div>
+                </div>
+
+                <div class="study-area">
+                    <p class="study-label">Principais áreas de estudo</p>
+
+                    <ul class="study-tags">
+                        <li class="study-tag">Desenvolvimento Web</li>
+                        <li class="study-tag">Banco de Dados</li>
+                        <li class="study-tag">Estruturas de Dados</li>
+                        <li class="study-tag">Engenharia de Software</li>
+                        <li class="study-tag">Desenvolvimento Mobile</li>
+                        <li class="study-tag">Programação Orientada a Objetos</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+        <section id="certifications" class="section reveal">
+            <div class="certifications-title">
+                <h2>Cursos e Certificações</h2>
+            </div>
+
+            <div class="certifications-grid">
+                <article class="panel certification-card">
+                    <div class="certification-header">
+                        <div class="certification-icon" aria-hidden="true">
+                            <i class="devicon-linux-plain"></i>
+                        </div>
+
+                        <p class="certification-type">
+                            CERTIFICAÇÃO
+                        </p>
+                    </div>
+
+                    <div class="certification-content">
+                        <h3>Linux Unhatched</h3>
+
+                        <p class="certification-institution">
+                            Cisco Networking Academy
+                        </p>
+
+                        <p class="certification-description">
+                            Fundamentos do sistema Linux, linha de comando,
+                            gerenciamento de arquivos e conceitos básicos
+                            de administração.
+                        </p>
+                    </div>
+
+                    <div class="certification-footer">
+                        <p class="certification-status">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            Concluído
+                        </p>
+
+                        <a href="https://www.credly.com/badges/78e5cb80-81ad-443a-a99a-af230d3c022e/linked_in_profile" class="credential-link" target="_blank" rel="noopener noreferrer">
+                            Ver credencial
+                        </a>
+                    </div>
+                </article>
+
+                <article class="panel certification-card">
+                    <div class="certification-header">
+                        <div class="certification-icon" aria-hidden="true">
+                            <span>🛡️</span>
+                        </div>
+
+                        <p class="certification-type">
+                            CERTIFICAÇÃO
+                        </p>
+                    </div>
+
+                    <div class="certification-content">
+                        <h3>Gerenciamento de Ameaças Cibernéticas</h3>
+
+                        <p class="certification-institution">
+                            Cisco Networking Academy
+                        </p>
+
+                        <p class="certification-description">
+                            Conceitos de segurança digital, identificação
+                            de ameaças, vulnerabilidades e práticas básicas
+                            de proteção de sistemas.
+                        </p>
+                    </div>
+
+                    <div class="certification-footer">
+                        <p class="certification-status">
+                            <span class="status-dot" aria-hidden="true"></span>
+                            Concluído
+                        </p>
+
+                        <a href="https://www.credly.com/badges/b1afe936-b42d-4b6d-b33a-8b15d58a086b/linked_in_profile" class="credential-link" target="_blank" rel="noopener noreferrer">
+                            Ver credencial
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <section id="contact" class="section contact reveal">
+            <h2>Entre em contato</h2>
+
+            <p>Quer falar de projetos, código ou oportunidades?</p>
+
+            <div class="hero-buttons">
+                <a href="https://github.com/MarcusVRDN" target="_blank" rel="noopener noreferrer" class="pixel-button">
+                    GitHub
+                </a>
+
+                <a href="https://www.linkedin.com/in/marcus-nascimento-50a0ba1b5" target="_blank"
+                    rel="noopener noreferrer" class="pixel-button secondary">
+                    LinkedIn
+                </a>
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>

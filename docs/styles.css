@@ -1,16 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap");
 
 :root {
   --bg: #080b10;
+  --bg-secondary: #111827;
   --bg-card: #151b26;
+  --bg-dark: #07090d;
+
   --text: #f3ead7;
   --muted: #b8ad98;
+
   --gold: #d6a84f;
   --gold-light: #ffd778;
-  --border-dark: #000;
+
+  --black: #000;
+
+  --green-dark: #24753a;
+  --green-light: #49c76b;
+
+  --blue-dark: #315ca8;
+  --blue-light: #6fa8ff;
+
+  --shadow-card:
+    0 0 0 4px var(--black),
+    12px 12px 0 var(--black);
+
+  --shadow-project:
+    0 0 0 4px var(--black),
+    14px 14px 0 var(--black);
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -22,12 +43,38 @@ html {
 
 body {
   min-height: 100vh;
-  background: linear-gradient(180deg, #080b10, #111827);
+  background: linear-gradient(
+    180deg,
+    var(--bg),
+    var(--bg-secondary)
+  );
   color: var(--text);
   font-family: "Inter", sans-serif;
 }
 
-.navbar{
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.reveal{
+    opacity:0;
+
+    transform:translateY(30px);
+
+    transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.reveal.visible{
+    opacity:1;
+
+    transform:translateY(0); 
+}
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
   height: 72px;
   padding: 0 8%;
 
@@ -35,16 +82,16 @@ body {
   justify-content: space-between;
   align-items: center;
 
-  background: rgba(8, 11, 16, 0.92); 
+  background: rgba(8, 11, 16, 0.92);
   border-bottom: 3px solid var(--gold);
 }
 
-.logo{
+.logo {
   display: flex;
   align-items: center;
 }
 
-.logo p{
+.logo p {
   font-family: "Press Start 2P", monospace;
   font-size: 0.85rem;
   color: var(--gold-light);
@@ -54,71 +101,99 @@ body {
 .nav-links {
   display: flex;
   gap: 28px;
+
   list-style: none;
 }
 
 .nav-links a {
   color: var(--text);
   text-decoration: none;
-  font-weight: 700;
+
   font-size: 0.95rem;
+  font-weight: 700;
+
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
   color: var(--gold-light);
 }
 
-.hero {
+.nav-links a:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 5px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+#hero {
   min-height: calc(100vh - 72px);
   padding: 80px 8%;
 
   display: grid;
-  grid-template-columns: 1.2fr 380px;
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(300px, 380px);
   gap: 48px;
   align-items: center;
 }
 
 .hero-text h1 {
+  margin-bottom: 28px;
+
   font-family: "Press Start 2P", monospace;
   font-size: clamp(1.4rem, 3vw, 2.8rem);
   line-height: 1.5;
+  min-height: 6.5em;
+
   color: var(--gold-light);
   text-shadow: 5px 5px 0 var(--black);
-  margin-bottom: 28px;
 }
 
 .hero-text h1::after {
   content: "|";
+
   margin-left: 8px;
+
   color: var(--gold-light);
+
   animation: blink 0.8s infinite;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-
-  51%, 100% {
-    opacity: 0;
-  }
 }
 
 .descricao {
   max-width: 650px;
+
   color: var(--muted);
+
   font-size: 1.1rem;
   line-height: 1.8;
 }
 
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* =========================
+   CHARACTER CARD
+========================= */
+
 .character-card {
+  padding: 28px;
+
   background: var(--bg-card);
   border: 4px solid var(--gold);
-  box-shadow:
-    0 0 0 4px var(--black),
-    12px 12px 0 var(--black);
+  box-shadow: var(--shadow-card);
 
-  padding: 28px;
   text-align: center;
 }
 
@@ -128,24 +203,41 @@ body {
   margin: 0 auto 18px;
 
   border-radius: 50%;
-  background: radial-gradient(circle, #fff7a8, var(--gold), #6f4314);
+
+  background: radial-gradient(
+    circle,
+    #fff7a8,
+    var(--gold),
+    #6f4314
+  );
+
   box-shadow: 0 0 28px rgba(255, 215, 120, 0.8);
 }
 
 .character-card h2 {
+  margin-bottom: 18px;
+
   font-family: "Press Start 2P", monospace;
   font-size: 0.85rem;
   line-height: 1.5;
+
   color: var(--gold-light);
-  margin-bottom: 18px;
 }
+
+.character-card p {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* =========================
+   PHOTO TRANSITION
+========================= */
 
 .pixel-transition {
   position: relative;
 
   width: 220px;
   height: 220px;
-
   margin: 24px auto;
 }
 
@@ -159,11 +251,19 @@ body {
   object-fit: cover;
 
   border: 4px solid var(--gold);
-  image-rendering: pixelated;
+
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.normal-photo {
+  opacity: 1;
 }
 
 .pixel-photo {
   opacity: 0;
+  transform: scale(1);
 
   image-rendering: pixelated;
 }
@@ -177,10 +277,9 @@ body {
   opacity: 0;
 }
 
-.character-card p {
-  color: var(--muted);
-  font-weight: 700;
-}
+/* =========================
+   STATUS BARS
+========================= */
 
 .status {
   margin-top: 18px;
@@ -188,10 +287,12 @@ body {
 
 .status span {
   display: block;
+
   margin-bottom: 8px;
 
   font-family: "Press Start 2P", monospace;
   font-size: 0.7rem;
+
   color: var(--gold-light);
 }
 
@@ -199,8 +300,9 @@ body {
   width: 100%;
   height: 18px;
 
-  background: #07090d;
+  background: var(--bg-dark);
   border: 3px solid var(--black);
+
   box-shadow: inset 0 0 0 2px #2c3444;
 }
 
@@ -211,75 +313,137 @@ body {
 
 .hp {
   width: 85%;
-  background: linear-gradient(90deg, #24753a, #49c76b);
+
+  background: linear-gradient(
+    90deg,
+    var(--green-dark),
+    var(--green-light)
+  );
 }
 
 .mp {
   width: 70%;
-  background: linear-gradient(90deg, #315ca8, #6fa8ff);
+
+  background: linear-gradient(
+    90deg,
+    var(--blue-dark),
+    var(--blue-light)
+  );
 }
 
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
 .section {
+  position: relative;
   padding: 90px 8%;
 }
 
+.section::after {
+  content: "";
+
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  transform: translateX(-50%);
+
+  width: min(84%, 1100px);
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(214, 168, 79, 0.35),
+    transparent
+  );
+}
+
+.section:last-of-type::after {
+  display: none;
+}
+
 .section h2 {
+  margin-bottom: 32px;
+
   font-family: "Press Start 2P", monospace;
   font-size: 1.3rem;
+
   color: var(--gold-light);
-  margin-bottom: 32px;
   text-shadow: 4px 4px 0 var(--black);
 }
 
-.about-title {
+
+.about-title,
+.skills-title,
+.project-title,
+.featured-project-title,
+.experience-title,
+.education-title {
   display: flex;
-  align-items: flex-end ;
-}
-
-.scroll-card {
-  max-width: 900px;
-
-  background: linear-gradient(180deg, #20170f, #121824);
-  border: 4px solid var(--gold);
-  box-shadow:
-    0 0 0 4px var(--black),
-    12px 12px 0 var(--black);
-
-  padding: 34px;
-}
-
-.scroll-card p {
-  color: var(--muted);
-  line-height: 1.9;
-  margin-bottom: 18px;
+  align-items: center;
 }
 
 .skills-title {
-  display: flex;
-  align-items: flex-end;
   gap: 10px;
 }
 
+/* =========================
+   ABOUT
+========================= */
+
+.scroll-card {
+  max-width: 900px;
+  padding: 34px;
+
+  background: linear-gradient(
+    180deg,
+    #20170f,
+    #121824
+  );
+
+  border: 4px solid var(--gold);
+  box-shadow: var(--shadow-card);
+}
+
+.scroll-card p {
+  margin-bottom: 18px;
+
+  color: var(--muted);
+
+  line-height: 1.9;
+}
+
+.scroll-card p:last-child {
+  margin-bottom: 0;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
 #skills-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
-  justify-content: center;
 }
 
 .skill-card {
-  width: calc(25% - 18px);
+  padding: 26px 18px;
 
   background: var(--bg-card);
   border: 3px solid #3b2f22;
+
   box-shadow:
     0 0 0 3px var(--black),
     8px 8px 0 var(--black);
 
-  padding: 26px 18px;
   text-align: center;
 
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .skill-card:hover {
@@ -290,25 +454,28 @@ body {
 .skill-card i {
   display: block;
 
-  font-size: 5rem;
-
   margin-bottom: 18px;
+
+  font-size: 5rem;
 }
 
 .skill-card h3 {
   font-family: "Press Start 2P", monospace;
   font-size: 0.7rem;
+
   color: var(--text);
 }
 
-.project-title{
-  display: flex;
-  align-items: flex-end;
-}
+/* =========================
+   PROJECTS
+========================= */
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
   gap: 34px;
 }
 
@@ -320,10 +487,7 @@ body {
 
   background: var(--bg-card);
   border: 4px solid var(--gold);
-
-  box-shadow:
-    0 0 0 4px var(--black),
-    14px 14px 0 var(--black);
+  box-shadow: var(--shadow-project);
 
   color: var(--text);
 
@@ -334,28 +498,16 @@ body {
   transform: translateY(-8px);
 }
 
-.project-window img {
-  width: 100%;
-  height: 190px;
-
-  object-fit: cover;
-  image-rendering: pixelated;
-
-  border-bottom: 3px solid var(--black);
-}
-.project-window:hover {
-  transform: translateY(-8px);
-}
-
 .window-top {
   height: 36px;
-  background: #090d13;
-  border-bottom: 3px solid var(--gold);
+  padding: 0 12px;
 
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 0 12px;
+
+  background: #090d13;
+  border-bottom: 3px solid var(--gold);
 }
 
 .window-top span {
@@ -369,8 +521,8 @@ body {
 .project-window img {
   width: 100%;
   height: 190px;
+
   object-fit: cover;
-  image-rendering: pixelated;
 
   border-bottom: 3px solid var(--black);
 }
@@ -380,34 +532,53 @@ body {
 }
 
 .quest-label {
+  margin-bottom: 12px;
+
   font-family: "Press Start 2P", monospace;
   font-size: 0.65rem;
+
   color: var(--gold-light);
-  margin-bottom: 12px;
 }
 
 .window-info h3 {
   margin-bottom: 12px;
+
   font-size: 1.25rem;
 }
 
 .project-description {
-  color: var(--muted);
-  line-height: 1.6;
   margin-bottom: 18px;
+
+  color: var(--muted);
+
+  line-height: 1.6;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 18px;
 }
 
 .project-status {
   display: inline-block;
+
   padding: 8px 12px;
 
   border: 2px solid var(--black);
-  font-weight: 700;
+
   font-size: 0.85rem;
+  font-weight: 700;
 }
 
 .project-status.online {
-  background: #49c76b;
+  background: var(--green-light);
   color: #071008;
 }
 
@@ -416,39 +587,502 @@ body {
   color: #120d05;
 }
 
+.project-technologies {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tech-tags,
+.study-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  list-style: none;
+}
+
+.tech-tag,
+.study-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 12px;
+
+  border: 2px solid var(--gold);
+  background: rgba(214, 168, 79, 0.1);
+
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.tech-tag i {
+  font-size: 1.1rem;
+}
+
+/* =========================
+   MAIN PROJECT
+========================= */
+.featured-project-title,
+.education-title {
+  margin-bottom: 32px;
+}
+
+.featured-project-title h2,
+.education-title h2 {
+  margin-bottom: 0;
+}
+
+.education-title{
+  display: flex;
+  justify-content: center;
+} 
+
+.featured-project {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 42px;
+  align-items: center;
+}
+.featured-project-image {
+  overflow: hidden;
+
+  border: 3px solid var(--gold);
+  box-shadow:
+    0 0 0 3px var(--black),
+    8px 8px 0 var(--black);
+}
+
+.featured-project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.featured-project-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.project-category {
+  margin-bottom: 10px;
+
+  color: var(--gold-light);
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.6rem;
+  line-height: 1.6;
+}
+
+.featured-project-content h3 {
+  color: var(--text);
+
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.featured-project-description {
+  color: var(--muted);
+
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.featured-project-context,
+.featured-project-features,
+.study-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.featured-project-context h4,
+.featured-project-features h4,
+.project-label,
+.study-label {
+  color: var(--gold-light);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.featured-project-context p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.featured-project-features ul {
+  padding-left: 20px;
+}
+
+.featured-project-features li {
+  margin-bottom: 8px;
+
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.featured-project-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .featured-project {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-project-image img {
+    min-height: auto;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 480px) {
+  .featured-project {
+    padding: 24px;
+  }
+
+  .featured-project-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .featured-project-buttons {
+    flex-direction: column;
+  }
+
+  .featured-project-buttons .pixel-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================
+   EXPERIENCE
+========================= */
+
+.panel {
+  background: linear-gradient(180deg, #20170f, #121824);
+  border: 4px solid var(--gold);
+  box-shadow: var(--shadow-card);
+
+  padding: 34px;
+}
+.panel-text {
+  color: var(--muted);
+}
+
+.panel-stack {
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-card {
+  width: min(100%, 780px);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.education-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.education-icon {
+  font-size: 2.4rem;
+  line-height: 1;
+}
+
+.education-label {
+  margin-bottom: 10px;
+  color: var(--gold-light);
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.58rem;
+  line-height: 1.6;
+}
+
+.education-card h3 {
+  margin-bottom: 10px;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.education-institution {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.education-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding-block: 20px;
+  border-top: 1px solid rgba(214, 168, 79, 0.25);
+  border-bottom: 1px solid rgba(214, 168, 79, 0.25);
+}
+
+.education-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.education-info-label {
+  color: var(--gold-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.education-info > p:last-child {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.education-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--green-light);
+  box-shadow: 0 0 10px rgba(73, 199, 107, 0.65);
+}
+
+.study-tag {
+  line-height: 1.35;
+}
+
+/* =========================
+   CERTIFICATIONS
+========================= */
+
+.certifications-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.certifications-title h2 {
+  margin-bottom: 0;
+}
+
+.certifications-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(280px, 1fr)
+  );
+  gap: 28px;
+}
+
+.certification-card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  min-height: 100%;
+}
+
+.certification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.certification-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(214, 168, 79, 0.1);
+  border: 2px solid var(--gold);
+
+  color: var(--gold-light);
+  font-size: 1.8rem;
+}
+
+.certification-icon i {
+  font-size: 2rem;
+}
+
+.certification-type {
+  color: var(--gold-light);
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 0.55rem;
+  line-height: 1.6;
+}
+
+.certification-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  flex: 1;
+}
+
+.certification-content h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+}
+
+.certification-institution {
+  color: var(--gold-light);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.certification-description {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.certification-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  padding-top: 18px;
+
+  border-top: 1px solid rgba(214, 168, 79, 0.25);
+}
+
+.certification-status {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.credential-link {
+  color: var(--gold-light);
+
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.credential-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.credential-link:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 5px;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
 .contact {
   text-align: center;
 }
 
 .contact p {
-  color: var(--muted);
   margin-bottom: 28px;
+
+  color: var(--muted);
 }
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+.repo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  background: transparent;
+  color: var(--gold-light);
+  border: 2px solid var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.repo-button:hover {
+  background: rgba(214, 168, 79, 0.12);
+}
+
+.repo-button:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 4px;
+}
+
 
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: 18px;
   flex-wrap: wrap;
+  gap: 18px;
 }
 
 .pixel-button {
   display: inline-block;
+
   padding: 14px 22px;
 
   background: var(--gold);
   color: #120d05;
 
+  border: 3px solid var(--black);
+  box-shadow: 6px 6px 0 var(--black);
+
   text-decoration: none;
   font-weight: 800;
 
-  border: 3px solid var(--black);
-  box-shadow: 6px 6px 0 var(--black);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    color 0.15s ease;
 }
 
 .pixel-button:hover {
   transform: translate(3px, 3px);
   box-shadow: 3px 3px 0 var(--black);
+}
+
+.pixel-button:active {
+  transform: translate(6px, 6px);
+  box-shadow: none;
+}
+
+.pixel-button:focus-visible {
+  outline: 3px solid var(--gold-light);
+  outline-offset: 5px;
 }
 
 .pixel-button.secondary {
@@ -457,10 +1091,19 @@ body {
   border-color: var(--gold);
 }
 
+.pixel-button.secondary:hover {
+  background: rgba(214, 168, 79, 0.12);
+}
+
+/* =========================
+   TABLETS
+========================= */
+
 @media (max-width: 850px) {
   .navbar {
     height: auto;
     padding: 22px 6%;
+
     flex-direction: column;
     gap: 18px;
   }
@@ -471,12 +1114,14 @@ body {
     gap: 16px;
   }
 
-  .hero {
+  #hero {
     grid-template-columns: 1fr;
+
     padding: 60px 6%;
   }
 
   .character-card {
+    width: 100%;
     max-width: 380px;
     margin: 0 auto;
   }
@@ -484,9 +1129,29 @@ body {
   .section {
     padding: 70px 6%;
   }
+
+  #skills-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 1fr)
+    );
+  }
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 480px) {
+  .education-meta,
+  .education-header {
+    grid-template-columns: 1fr;
+  }
+
+  .education-icon {
+    font-size: 2rem;
+  }
+
   .hero-text h1 {
     font-size: 1.1rem;
   }
@@ -499,28 +1164,46 @@ body {
     font-size: 1rem;
   }
 
-  .character-card img {
+  .pixel-transition {
     width: 150px;
     height: 150px;
+  }
+
+  #skills-grid {
+    grid-template-columns: 1fr;
   }
 
   .project-window img {
     height: 160px;
   }
-}
 
-@media (max-width: 850px) {
-  #skills-grid {
-    justify-content: center;
+  .card-buttons {
+    flex-direction: column;
   }
 
-  .skill-card {
-    width: calc(50% - 12px);
-  }
-}
-
-@media (max-width: 480px) {
-  .skill-card {
+  .pixel-button {
     width: 100%;
+    text-align: center;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
   }
 }
