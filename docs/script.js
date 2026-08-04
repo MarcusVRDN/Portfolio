@@ -56,3 +56,17 @@ function decipherRunes() {
 }
 
 typeRunes();
+
+
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+    entry.target.classList.add("visible")
+  } 
+  })
+
+}, {threshold: 0.2} );
+
+const reveals = document.querySelectorAll(".reveal");
+reveals.forEach ((e) => observer.observe(e))
